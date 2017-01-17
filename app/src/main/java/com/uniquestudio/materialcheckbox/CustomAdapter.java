@@ -52,10 +52,17 @@ public class CustomAdapter extends BaseAdapter {
 
             TextView title = (TextView) convertView.findViewById(R.id.tv);
             String m = movieItems.get(position);
-            CircleCheckBox checkBox = (CircleCheckBox) convertView.findViewById(R.id.circle_check_box);
+            final CircleCheckBox checkBox = (CircleCheckBox) convertView.findViewById(R.id.circle_check_box);
             // title
             title.setText(m);
-            checkBox.setChecked(true);
+            checkBox.setListener(new CircleCheckBox.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(boolean isChecked) {
+                    // do something
+                    checkBox.setChecked(true);
+                }
+            });
+
 
             return convertView;
         }
