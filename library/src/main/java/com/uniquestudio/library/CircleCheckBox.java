@@ -160,20 +160,28 @@ public class CircleCheckBox extends MaterialCheckBox {
         mLeftPath.moveTo(mLeftPoint.x, mLeftPoint.y);
         mLeftPath.lineTo(mMiddlePoint.x, mMiddlePoint.y);
         mLeftMeasure = new PathMeasure(mLeftPath, false);
-        mLeftPath.reset();
+        if(mLeftPath!=null) {
+            mLeftPath.reset();
+        }
         mLeftPath.moveTo(mMiddlePoint.x,mMiddlePoint.y);
         mLeftPath.lineTo(mLeftPoint.x,mLeftPoint.y);
         mOppositeLeftMeasure = new PathMeasure(mLeftPath,false);
-        mLeftPath.reset();
+        if(mLeftPath!=null) {
+            mLeftPath.reset();
+        }
 
         mRightPath.moveTo(mStopPoint.x, mStopPoint.y);
         mRightPath.lineTo(mRightPoint.x, mRightPoint.y);
         mRightMeasure = new PathMeasure(mRightPath, false);
-        mRightPath.reset();
+        if(mRightPath!=null) {
+            mRightPath.reset();
+        }
         mRightPath.moveTo(mRightPoint.x,mRightPoint.y);
         mRightPath.lineTo(mStopPoint.x,mStopPoint.y);
         mOppositeRightMeasure = new PathMeasure(mRightPath,false);
-        mRightPath.reset();
+        if(mRightPath!=null) {
+            mRightPath.reset();
+        }
 
         mCirclePath = new Path();
         mCirclePath.addCircle(mCenterPoint.x, mCenterPoint.y, mRadius, Path.Direction.CCW);
@@ -229,7 +237,9 @@ public class CircleCheckBox extends MaterialCheckBox {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
                 float value = (float) animation.getAnimatedValue();
-                mRightPath.reset();
+                if(mRightPath!=null) {
+                    mRightPath.reset();
+                }
                 mRightPath.lineTo(0,0);
                 mOppositeRightMeasure.getSegment(0, value * mOppositeRightMeasure.getLength(), mRightPath, true);
                 invalidate();
@@ -246,7 +256,9 @@ public class CircleCheckBox extends MaterialCheckBox {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
                 float value = (float) animation.getAnimatedValue();
-                mLeftPath.reset();
+                if(mLeftPath!=null) {
+                    mLeftPath.reset();
+                }
                 mLeftPath.lineTo(0,0);
                 mOppositeLeftMeasure.getSegment(0, value * mOppositeLeftMeasure.getLength(), mLeftPath, true);
                 invalidate();
@@ -311,7 +323,9 @@ public class CircleCheckBox extends MaterialCheckBox {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
                 float value = (float) animation.getAnimatedValue();
-                mLeftPath.reset();
+                if(mLeftPath!=null) {
+                    mLeftPath.reset();
+                }
                 mLeftPath.lineTo(0,0);
                 mLeftMeasure.getSegment(0, value * mLeftMeasure.getLength(), mLeftPath, true);
                 invalidate();
@@ -327,7 +341,9 @@ public class CircleCheckBox extends MaterialCheckBox {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
                 float value = (float) animation.getAnimatedValue();
-                mRightPath.reset();
+                if(mRightPath!=null) {
+                    mRightPath.reset();
+                }
                 mRightPath.lineTo(0,0);
                 mRightMeasure.getSegment(0, value * mRightMeasure.getLength(), mRightPath, true);
                 invalidate();
